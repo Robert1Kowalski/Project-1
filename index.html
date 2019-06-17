@@ -162,6 +162,26 @@
       </div>
     </div>
   </section>
+  
+  <h1>Doggie Date</h1>
+  <div class="container">
+    <div class="row">
+      <main>
+        <header></header>
+        <div class="searchForm">
+          <form>
+            <label for="yelpsearch">Where to?</label>
+            <input type="text" class="form-control" id="locationInput" placeholder="Denver, CO">
+          </form>
+          <button type="submit" class="btn btn-primary" id="submitbtn">Submit</button>
+        </div>
+        <table>
+          <thead id="yelpResultsHead"></thead>
+          <tbody id="yelpResultsBody"></tbody>
+        </table>
+      </main>
+    </div>
+  </div>
 
   <!-- Call to Action -->
   <section class="content-section bg-primary text-white">
@@ -219,7 +239,6 @@
   <!-- OUR JAVASCRIPT -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCrTfkjVFPjkJX-_WY9bQDHr7z0bAI2Ng&callback=initMap" async defer></script>
   <script src="js/apps.js"></script>
-
 
 </body>
 
