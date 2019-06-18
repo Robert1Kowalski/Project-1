@@ -8,7 +8,10 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <!-- Bootstrap -->
+  <title>Doggie Date</title>
+
+
+  <!-- Bootstrap Core CSS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -22,26 +25,48 @@
     crossorigin="anonymous"></script>
 
 
-  <title>Doggie Date</title>
+  <!-- MATERIALIZE STUFF -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
   <!-- Custom CSS -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/style.css" type="text/css" rel="stylesheet">
+
+
 </head>
 
 <body>
-  <div class="jumbotron jumbotron-fluid" id="jumbotron">
-    <div class="container">
-      <h1 class="display-4" id="jumbotron-title">Doggie Date</h1>
-      <p class="lead">Plan out a dog and owner friendly day!</p>
-    </div>
+    <div class="jumbotron jumbotron-fluid" id="jumbotron">
+        <!-- <div class="container"> -->
+          <h1 class="display-4" id="jumbotron-title">Doggie Date</h1>
+          <p class="lead">Plan out a dog and owner friendly day!</p>
+          <!-- </div> -->
+        </div>
+  <div class="parallax-container">
+    <div class="parallax"><img src="assets/img/photo-1508609540374-67d1601ba520.jpg"></div>
   </div>
-  <div class="container">
-    <div class="row">
+  <div class="row container">
+    <div class="col s12">
+
+
+    </div>
+
+
+  </div>
+
+
+
+  <div class="row container">
+    <div class="col s12">
+
       <main>
         <header></header>
         <div class="searchForm">
           <form>
             <label for="yelpsearch">Where to?</label>
+            <p id="searchp"> Enter the city you'd like to explore with your pet.</p>
             <input type="text" class="form-control" id="locationInput" placeholder="Denver, CO">
           </form>
           <button type="submit" class="btn btn-primary" id="submitbtn">Submit</button>
@@ -53,21 +78,28 @@
       </main>
     </div>
   </div>
-
   <!-- Map -->
-  <section id="contact" class="map">
-    <div id="map"></div>
-  </section>
+  <div class="parallax-container">
+    <div class="parallax"><img src="assets/img/photo-1508609540374-67d1601ba520.jpg"></div>
+  </div>
+  <div class="section white">
+    <div class="row container">
+      <div id="map"></div>
+    </div>
+  </div>
+
+
+  <!-- Plugin JavaScript -->
+  <!-- <script src="vendor/jquery-easing/jquery.easing.min.js"></script> -->
+
 
   <!-- OUR JAVASCRIPT -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCrTfkjVFPjkJX-_WY9bQDHr7z0bAI2Ng&callback=initMap"
+    async defer></script>
   <script src="app.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <!-- <script src="js/apps.js"></script> -->
 
-
-
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCrTfkjVFPjkJX-_WY9bQDHr7z0bAI2Ng&callback=initMap" async defer></script> -->
 </body>
 
 </html>
+

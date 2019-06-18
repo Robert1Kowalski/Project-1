@@ -1,6 +1,15 @@
-$("#submitbtn").click((event) => {
+$(document).ready(function(){
+    $('.parallax').parallax();
+  });
+
+var address = ""
+var directionsService;
+var directionsDisplay;
+
+$('#submitbtn').click((event) => {
     event.preventDefault();
     var search = $("#locationInput").val();
+    
     console.log(search);
     var settings = {
         "async": true,
@@ -26,7 +35,8 @@ $("#submitbtn").click((event) => {
         // let message = document.createElement('p');
         // message.innerText = 'Tap to show/hide details.';
         // $('header').append(message);
-
+        
+        $("#yelpResultsHead").html("<p> Here are some dog-friendly restaurants near you. Click on one to get some directions! </p>")
         var newHeader = $("<tr>").append(
             $("<th>").text("Restaurant Name:").css("font-weight", "Bold"),
             $("<th>").text("Rating:").css("font-weight", "Bold"),
@@ -57,11 +67,100 @@ $("#submitbtn").click((event) => {
                 $("<td>").html("<img src=" + businessImg + ">"),
             )
             newRow.attr("data", response.businesses[i].location.address1)
-            $("#yelp").attr('target', '_blank')
+            $("#yelp").attr('target', '_blank');
             $("#yelpResultsBody").append(newRow);
         }
         $("#yelpResultsBody").on("click", ".newrow", function () {
             console.log($(this).attr("data"));
+            address = ($(this).attr("data"));
+            console.log(address)
+                        var onChangeHandler = function () {
+                calculateAndDisplayRoute(directionsService, directionsDisplay);
+            };
+        
+            // geocodeLatLng(geocoder, map, infoWindow);
+            onChangeHandler();
+            $("#yelpResultsBody").hide();
+            $("#yelpResultsHead").hide();
         })
     })
 })
+var myPosition;
+
+
+function initMap() {
+    directionsService = new google.maps.DirectionsService;
+    directionsDisplay = new google.maps.DirectionsRenderer;
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 10,
+        center: { lat: 39.7392, lng: -104.9903 }
+    });
+    var geocoder = new google.maps.Geocoder;
+    var infoWindow = new google.maps.InfoWindow;
+    directionsDisplay.setMap(map);
+
+    infoWindow = new google.maps.InfoWindow;
+
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+        
+        navigator.geolocation.getCurrentPosition(function (position) {
+            position = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+                
+            };
+            myPosition = position
+            console.log(position.lat);
+            console.log(position.lng);
+            infoWindow.setPosition(position);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(position);
+
+            console.log(position);
+
+            // var onChangeHandler = function () {
+            //     calculateAndDisplayRoute(directionsService, directionsDisplay);
+            // };
+        
+            // // geocodeLatLng(geocoder, map, infoWindow);
+            // onChangeHandler();
+        }, function () {
+            handleLocationError(true, infoWindow, map.getCenter());
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+    }
+
+    function handleLocationError(browserHasGeolocation, infoWindow, position) {
+        infoWindow.setPosition(position);
+        infoWindow.setContent(browserHasGeolocation ?
+            'Error: The Geolocation service failed.' :
+            'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+    }
+
+    
+}
+
+// console.log("standalone lat: ", myPosition.lat);
+// console.log("stnadalone lng: ", myPosition.lng);
+
+function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+    console.log("Address:" + address)
+    console.log(myPosition.lat, myPosition.lng)
+    directionsService.route({
+        origin: {lat: myPosition.lat, lng: myPosition.lng},
+        destination: address,
+        travelMode: 'WALKING'
+    }, function (response, status) {
+        if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+        } else {
+            window.alert('Directions request failed due to ' + status);
+        }
+    })};
+
+   
