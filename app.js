@@ -28,41 +28,41 @@ $('button').click((event) => {
         // message.innerText = 'Tap to show/hide details.';
         // $('header').append(message);
 
-            var newHeader = $("<tr>").append(
-                $("<th>").text("Yelp Link:").css("font-weight", "Bold"),
-                $("<th>").text("Restaurant Name:").css("font-weight", "Bold"),
-                $("<th>").text("Rating:").css("font-weight", "Bold"),
-                $("<th>").text("Price:").css("font-weight", "Bold"),
-                $("<th>").text("Type:").css("font-weight", "Bold"),
-                $("<th>").text("Address:").css("font-weight", "Bold"),
-                $("<th>").text("Phone:").css("font-weight", "Bold"),
-                $("<th>").text("Image:").css("font-weight", "Bold"),
-            )
-            $("#yelpResultsHead").append(newHeader);
+        var newHeader = $("<tr>").append(
+            $("<th>").text("Restaurant Name:").css("font-weight", "Bold"),
+            $("<th>").text("Rating:").css("font-weight", "Bold"),
+            $("<th>").text("Price:").css("font-weight", "Bold"),
+            $("<th>").text("Type:").css("font-weight", "Bold"),
+            $("<th>").text("Address:").css("font-weight", "Bold"),
+            $("<th>").text("Phone:").css("font-weight", "Bold"),
+            $("<th>").text("Image:").css("font-weight", "Bold"),
+        )
+        $("#yelpResultsHead").append(newHeader);
 
-            for (var i = 0; i < response.businesses.length; i++) {
-                var businessURL = response.businesses[i].url;
-                var businessName = response.businesses[i].name;
-                var businessRating = response.businesses[i].rating;
-                var businessPrice = response.businesses[i].price;
-                var businessType = response.businesses[i].categories[0].title;
-                var businessAddress = response.businesses[i].location.address1;
-                var businessPhone = response.businesses[i].display_phone;
-                var businessImg = response.businesses[i].image_url;
-            
-                var newRow = $("<tr>").append(
-                    $("<td>").html("<a id='yelp' href='" + businessURL + "'>Yelp page</a>"),
-                    $("<td>").text(businessName),
-                    $("<td>").text(businessRating),
-                    $("<td>").text(businessPrice),
-                    $("<td>").text(businessType),
-                    $("<td>").text(businessAddress),
-                    $("<td>").text(businessPhone),
-                    $("<td>").html("<img src="+ businessImg +">"),
-                )
-                $("#yelp").attr('target', '_blank')
-                $("#yelpResultsBody").append(newRow);
-            }
+        for (var i = 0; i < response.businesses.length; i++) {
+            var businessName = response.businesses[i].name;
+            var businessRating = response.businesses[i].rating;
+            var businessPrice = response.businesses[i].price;
+            var businessType = response.businesses[i].categories[0].title;
+            var businessAddress = response.businesses[i].location.address1;
+            var businessPhone = response.businesses[i].display_phone;
+            var businessImg = response.businesses[i].image_url;
+
+            var newRow = $("<tr class='newrow'>").append(
+                $("<td>").text(businessName),
+                $("<td>").text(businessRating),
+                $("<td>").text(businessPrice),
+                $("<td>").text(businessType),
+                $("<td class='address'>").text(businessAddress),
+                $("<td>").text(businessPhone),
+                $("<td>").html("<img src=" + businessImg + ">"),
+            )
+            newRow.attr("data", response.businesses[i].location.address1)
+            $("#yelp").attr('target', '_blank')
+            $("#yelpResultsBody").append(newRow);
+        }
+        $("#yelpResultsBody").on("click", ".newrow", function () {
+            console.log($(this).attr("data"));
         })
     })
-
+})
