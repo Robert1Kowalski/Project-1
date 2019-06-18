@@ -1,7 +1,6 @@
 $(document).ready(function(){
     $('.parallax').parallax();
   });
-
 var address = ""
 var directionsService;
 var directionsDisplay;
@@ -23,8 +22,8 @@ $('#submitbtn').click((event) => {
         }
     }
 
-//     $.ajax(settings).done(function (response) {
-//         console.log(response);
+    $.ajax(settings).done(function (response) {
+        console.log(response);
 
         let results = response.businesses;
         // Create div to hold all search results
@@ -35,8 +34,7 @@ $('#submitbtn').click((event) => {
         // let message = document.createElement('p');
         // message.innerText = 'Tap to show/hide details.';
         // $('header').append(message);
-        
-        $("#yelpResultsHead").html("<p> Here are some dog-friendly restaurants near you. Click on one to get some directions! </p>")
+
         var newHeader = $("<tr>").append(
             $("<th>").text("Restaurant Name:").css("font-weight", "Bold"),
             $("<th>").text("Rating:").css("font-weight", "Bold"),
@@ -48,14 +46,14 @@ $('#submitbtn').click((event) => {
         )
         $("#yelpResultsHead").append(newHeader);
 
-//         for (var i = 0; i < response.businesses.length; i++) {
-//             var businessName = response.businesses[i].name;
-//             var businessRating = response.businesses[i].rating;
-//             var businessPrice = response.businesses[i].price;
-//             var businessType = response.businesses[i].categories[0].title;
-//             var businessAddress = response.businesses[i].location.address1;
-//             var businessPhone = response.businesses[i].display_phone;
-//             var businessImg = response.businesses[i].image_url;
+        for (var i = 0; i < response.businesses.length; i++) {
+            var businessName = response.businesses[i].name;
+            var businessRating = response.businesses[i].rating;
+            var businessPrice = response.businesses[i].price;
+            var businessType = response.businesses[i].categories[0].title;
+            var businessAddress = response.businesses[i].location.address1;
+            var businessPhone = response.businesses[i].display_phone;
+            var businessImg = response.businesses[i].image_url;
 
             var newRow = $("<tr class='newrow'>").append(
                 $("<td>").text(businessName),
@@ -67,7 +65,7 @@ $('#submitbtn').click((event) => {
                 $("<td>").html("<img src=" + businessImg + ">"),
             )
             newRow.attr("data", response.businesses[i].location.address1)
-            $("#yelp").attr('target', '_blank');
+            $("#yelp").attr('target', '_blank')
             $("#yelpResultsBody").append(newRow);
         }
         $("#yelpResultsBody").on("click", ".newrow", function () {
@@ -80,8 +78,6 @@ $('#submitbtn').click((event) => {
         
             // geocodeLatLng(geocoder, map, infoWindow);
             onChangeHandler();
-            $("#yelpResultsBody").hide();
-            $("#yelpResultsHead").hide();
         })
     })
 })
@@ -90,14 +86,22 @@ var myPosition;
 
 function initMap() {
     directionsService = new google.maps.DirectionsService;
-    directionsDisplay = new google.maps.DirectionsRenderer;
+    directionsDisplay = new google.maps.DirectionsRenderer({
+        draggable:false,
+        panel: document.getElementById("directions")
+
+    });
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 10,
         center: { lat: 39.7392, lng: -104.9903 }
     });
+
+
     var geocoder = new google.maps.Geocoder;
     var infoWindow = new google.maps.InfoWindow;
     directionsDisplay.setMap(map);
+
+
 
     infoWindow = new google.maps.InfoWindow;
 
@@ -154,13 +158,14 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     directionsService.route({
         origin: {lat: myPosition.lat, lng: myPosition.lng},
         destination: address,
-        travelMode: 'WALKING'
+        travelMode: 'DRIVING'
     }, function (response, status) {
         if (status === 'OK') {
             directionsDisplay.setDirections(response);
         } else {
             window.alert('Directions request failed due to ' + status);
         }
-    })};
 
-   
+        directionsDisplay.getDirections
+    })};
+    $("#map").append(map)
