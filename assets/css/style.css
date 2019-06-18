@@ -1,6 +1,26 @@
+#jumbotron-title {
+    font-size: 6.5rem;
+}
+
+#jumbotron {
+    background-color: antiquewhite;
+}
+
 img {
     width: auto; 
     height: auto; 
     max-width: 150px; 
     max-height: 100px'
 }
+
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* .jumbotron-fluid {
+    background-color: antiquewhite;
+} */
+
+tr:hover {
+    background-color: lightgray;
+  }
