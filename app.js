@@ -1,5 +1,4 @@
-
-$('button').click((event) => {
+$("#submitbtn").click((event) => {
     event.preventDefault();
     var search = $("#locationInput").val();
     console.log(search);
