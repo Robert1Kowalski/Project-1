@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
     $('.parallax').parallax();
   });
@@ -170,5 +169,3 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
         directionsDisplay.getDirections
     })};
     $("#map").append(map)
-
-    
