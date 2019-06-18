@@ -7,10 +7,11 @@
 }
 
 img {
-    width: auto; 
-    height: auto; 
-    max-width: 150px; 
+    width: auto;
+    height: auto;
+    max-width: 150px;
     max-height: 100px'
+
 }
 
 * {
@@ -23,4 +24,23 @@ img {
 
 tr:hover {
     background-color: lightgray;
+}
+
+/* #map {
+    height: 30rem;
   }
+  
+  @media (max-width: 992px) {
+    #map {
+      height: 75%;
+    }
+  }
+  
+  #map iframe {
+    pointer-events: none;
+  } */
+
+#map {
+    height: 400px;
+    width: 100%;
+}
