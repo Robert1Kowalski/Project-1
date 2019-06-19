@@ -27,8 +27,10 @@ $('#submitbtn').click((event) => {
     if (search !== "") {
         $("#yelpResultsHead").empty();
         $("#yelpResultsBody").empty();
+        $("#yelpResultsHead2").empty();
+        $("#yelpResultsBody2").empty();
+        $("#pheader").empty();
         
-
 
         console.log(search);
         var settings = {
@@ -55,7 +57,7 @@ $('#submitbtn').click((event) => {
             // let message = document.createElement('p');
             // message.innerText = 'Tap to show/hide details.';
             // $('header').append(message);
-            $(".searchForm").append("<p id=‘instructionp’> Here are some dog-friendly places near you. Click on one to get some walking or driving directions! </p>")
+            $("#pheader").append("<p id=‘instructionp’> Here are some dog-friendly places near you. Click on one to get some walking or driving directions! </p>")
             var newHeader = $("<tr>").append(
                 $("<th>").text("Restaurant:").css("font-weight", "Bold"),
                 $("<th>").text("Rating:").css("font-weight", "Bold"),
