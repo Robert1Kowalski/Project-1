@@ -28,8 +28,13 @@
   <!-- MATERIALIZE STUFF -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<<<<<<< HEAD
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+=======
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+>>>>>>> master
 
   <!-- Custom CSS -->
   <link href="assets/css/style.css" type="text/css" rel="stylesheet">
@@ -38,6 +43,24 @@
 </head>
 
 <body>
+<<<<<<< HEAD
+  <div class="jumbotron jumbotron-fluid" id="jumbotron">
+    <!-- <div class="container"> -->
+    <h1 class="display-4" id="jumbotron-title">Doggie Date</h1>
+    <p class="lead">Plan out a dog and owner friendly day!</p>
+    <!-- </div> -->
+  </div>
+  <div class="parallax-container">
+    <div class="parallax"><img src="assets/img/photo-1508609540374-67d1601ba520.jpg"></div>
+  </div>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col s12">
+
+      <!-- <main> -->
+=======
     <div class="jumbotron jumbotron-fluid" id="jumbotron">
         <!-- <div class="container"> -->
           <h1 class="display-4" id="jumbotron-title">Doggie Date</h1>
@@ -62,6 +85,7 @@
     <div class="col s12">
 
       <main>
+>>>>>>> master
         <header></header>
         <div class="searchForm">
           <form>
@@ -69,22 +93,65 @@
             <p id="searchp"> Enter the city you'd like to explore with your pet.</p>
             <input type="text" class="form-control" id="locationInput" placeholder="Denver, CO">
           </form>
+          <div class="input-field">
+            <!-- <label>Travel Mode</label> -->
+            <select id="dropdown">
+              <option value="" disabled selected>Wallking or Driving?</option>
+              <option class="travelOptns" value="WALKING">Walking</option>
+              <option class="travelOptns" value="DRIVING">Driving</option>
+            </select>
+            <!-- <button type="submit" class="btn btn-primary" id="submitbtn2">Submit</button> -->
+          </div>
           <button type="submit" class="btn btn-primary" id="submitbtn">Submit</button>
         </div>
-        <table>
+
+      <!-- </main> -->
+
+    </div>
+  </div>
+
+    <div class="row">
+      <div class="col s6">
+        <table class="table table-striped">
           <thead id="yelpResultsHead"></thead>
           <tbody id="yelpResultsBody"></tbody>
         </table>
-      </main>
+      </div>
+      <div class="col s6">
+          <table class="table table-striped">
+              <thead id="yelpResultsHead2"></thead>
+              <tbody id="yelpResultsBody2"></tbody>
+            </table>      </div>
     </div>
+<<<<<<< HEAD
+</div>
+
+=======
   </div>
+>>>>>>> master
   <!-- Map -->
   <div class="parallax-container">
     <div class="parallax"><img src="assets/img/photo-1508609540374-67d1601ba520.jpg"></div>
   </div>
   <div class="section white">
+<<<<<<< HEAD
+    <div class="container">
+      <div class="row">
+
+        <div class="col s7">
+          <div id="map"></div>
+        </div>
+        <div class="col s5">
+          <div id="directions">
+            <p id="distance">Total Distance:</p>
+          </div>
+        </div>
+
+      </div>
+=======
     <div class="row container">
       <div id="map"></div>
+>>>>>>> master
     </div>
   </div>
 
@@ -96,7 +163,11 @@
   <!-- OUR JAVASCRIPT -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCrTfkjVFPjkJX-_WY9bQDHr7z0bAI2Ng&callback=initMap"
     async defer></script>
+<<<<<<< HEAD
+  <script src="js/app.js"></script>
+=======
   <script src="app.js"></script>
+>>>>>>> master
   <!-- <script src="js/apps.js"></script> -->
 
 </body>
