@@ -55,7 +55,7 @@ $('#submitbtn').click((event) => {
             // let message = document.createElement('p');
             // message.innerText = 'Tap to show/hide details.';
             // $('header').append(message);
-            $(".searchForm").append("<p id=‘instructionp’> Here are some dog-friendly restaurants near you. Click on one to get some walking directions! </p>")
+            $(".searchForm").append("<p id=‘instructionp’> Here are some dog-friendly places near you. Click on one to get some walking directions! </p>")
             var newHeader = $("<tr>").append(
                 $("<th>").text("Restaurant:").css("font-weight", "Bold"),
                 $("<th>").text("Rating:").css("font-weight", "Bold"),

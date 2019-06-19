@@ -65,6 +65,16 @@ label {
     font-size: 18px;
 }
 
-.row.col-sm-6{
+/* .row.col-sm-6{
     margin-right: 23px;
+} */
+
+@media only screen and (min-width: 601px){
+
+    .row .col.m6 {
+        width: auto;
+        margin-left: auto;
+        left: auto;
+        right: auto;
+    }
 }
