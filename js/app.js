@@ -229,12 +229,12 @@ function initMap() {
 
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
-
+        
         navigator.geolocation.getCurrentPosition(function (position) {
             position = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
-
+                
             };
             myPosition = position
             console.log(position.lat);
@@ -249,7 +249,6 @@ function initMap() {
             // var onChangeHandler = function () {
             //     calculateAndDisplayRoute(directionsService, directionsDisplay);
             // };
-
             // // geocodeLatLng(geocoder, map, infoWindow);
             // onChangeHandler();
         }, function () {
@@ -267,7 +266,6 @@ function initMap() {
             'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
     }
-
 
 }
 
