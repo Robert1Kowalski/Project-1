@@ -10,6 +10,7 @@ html{
     background-color: #26a69a;
     color:aliceblue;
     text-align: center;
+    margin-bottom: 0;
 }
 
 img {
@@ -64,6 +65,6 @@ label {
     font-size: 18px;
 }
 
-.row .col.s6{
+.row.col-sm-6{
     margin-right: 23px;
 }
