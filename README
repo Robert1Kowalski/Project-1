@@ -1,0 +1,7 @@
+Description: We've created an app for the dog lovers out there.  The app allows a user to locate and get directions to both dog friendly restaurants and dog parks in a given location.
+
+Usage: A user will visit the site, enter a location that they want to explore, decide if they would like to drive or walk and click the submit button.  This event triggers the yelp API finding dog friendly restaurants and parks in the area. Once the user clicks on a location, the google maps API will populate the imbedded map with walking or driving directions to the desired location.
+
+Contributing: Jess and Brandon worked on the YELP API while Rob and Daniel worked with the Google Maps API. Design was a collaboration with all group members.  
+
+Credits: Jess, Rob, Daniel, Brandon.
